@@ -1,7 +1,12 @@
 package com.londonappbrewery.quizzler;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -23,6 +28,8 @@ public class MainActivity extends Activity {
 //    };
 
     // TODO: Declare member variables here:
+    Button mTrueButton;
+    Button mFalseButton;
 
 
     @Override
@@ -30,6 +37,35 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        mTrueButton = findViewById(R.id.true_button);
+
+        // Creating onClickListeners long way v1
+        View.OnClickListener myListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Quizzler", "Button pressed");
+
+                // Making Toast v1 - anonymous
+                Toast.makeText(getApplicationContext(), "True Button Pressed", Toast.LENGTH_SHORT).show();
+            }
+        };
+        mTrueButton.setOnClickListener(myListener);
+
+
+        mFalseButton = findViewById(R.id.false_button);
+
+        // Creating onClickListeners v2 - anonymous
+        mFalseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Quizzler", "Button pressed");
+
+                // Making Toast v2 - long, unnecessary way
+                Toast myToast = Toast.makeText(getApplicationContext(), "False Button Pressed", Toast.LENGTH_SHORT);
+                myToast.show();
+            }
+        });
 
         //TODO: Configure buttons here:
 
