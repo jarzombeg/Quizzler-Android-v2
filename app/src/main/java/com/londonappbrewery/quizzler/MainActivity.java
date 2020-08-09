@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
 
         mQuestionTextView.setText(mQuestion);
 
-        // Creating onClickListeners long way v1
-        View.OnClickListener myListener = new View.OnClickListener() {
+
+        mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("Quizzler", "Button pressed");
@@ -58,10 +58,8 @@ public class MainActivity extends Activity {
                 // Making Toast v1 - anonymous
                 Toast.makeText(getApplicationContext(), "True Button Pressed", Toast.LENGTH_SHORT).show();
             }
-        };
-        mTrueButton.setOnClickListener(myListener);
+        });
 
-        // Creating onClickListeners v2 - anonymous
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
