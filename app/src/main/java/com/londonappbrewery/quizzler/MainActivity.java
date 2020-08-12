@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
 
     // TODO: Move to QuizModel and uncomment to create question bank
     // Create question bank using the Question class for each item in the array
-    private TrueFalse[] mQuestionBank = new TrueFalse[] {
+    private TrueFalse[] mQuestionBank = new TrueFalse[]{
             new TrueFalse(R.string.question_1, true),
             new TrueFalse(R.string.question_2, true),
             new TrueFalse(R.string.question_3, true),
@@ -76,17 +76,20 @@ public class MainActivity extends Activity {
 
     }
 
+    private void updateQuestion() {
+        mIndex = (mIndex +1);
+        mQuestion = mQuestionBank[mIndex].getQuestionID();
+        mQuestionTextView.setText(mQuestion);
+    }
+
 
     // TODO: Add feedbackOnAnswer() method:
-
 
 
     // TODO: Add goToNextQuestion() method:
 
 
-
     // TODO: Add updateScreen() method:
-
 
 
     // TODO: Save state during rotation
